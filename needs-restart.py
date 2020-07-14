@@ -28,7 +28,7 @@ def show_needs_restart():
         op = sp[4]
         if "DEL" in op:
             fi = sp[8]
-            if "so" in fi:
+            if ".so" in fi:
                 svc =  os.popen('systemctl status ' + sp[2])
                 svc_out = svc.readlines()
                 if ".service" in svc_out[0]:
