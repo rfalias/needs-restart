@@ -85,6 +85,11 @@ def check_args(args):
 
 
 if __name__ == "__main__":
+    if os.geteuid() != 0:
+        exit("You need to have root privileges to run this script.")
+    if not (os.path.isfile('/sbin/service')
+            and os.path.isfile('/bin/systemctl')
+            and os.path.isfile('/sbin/lsof')):
+        exit("Missing dependencies, check for lsof, service and systemctl")
     args = parser.parse_args()
     check_args(args)
-
