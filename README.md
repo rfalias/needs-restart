@@ -1,5 +1,6 @@
 # needs-restart
-Script to check which RHEL based distro services need to be restarted after a yum update
+Script to check which RHEL based distro services need to be restarted after a yum update.
+Requires: lsof, systemd and service commands on RedHat 7+ based distros (CentOS, Oracle Linux, RHEL, etc...)
 
 Optionally fix them.
 ```
