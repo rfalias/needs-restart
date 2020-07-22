@@ -53,12 +53,14 @@ def do_restart(exclude):
             os.system("/sbin/service auditd stop")
             os.system("/bin/systemctl start auditd")
         else:
+
             print("Restarting " + service)
             os.system("/bin/systemctl restart " + service)
         tmp_list.append(service)
+    if len(restart_list) > 0:
+        os.system("/bin/systemctl restart systemd-*")
     for x in tmp_list:
         restart_list.remove(x)
-
     if len(restart_list) > 0:
         print("Some services were not be restarted (Exclusion or failure): ")
         for y in restart_list:
